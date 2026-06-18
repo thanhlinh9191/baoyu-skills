@@ -19,6 +19,31 @@ Skills shared by Baoyu for improving daily work efficiency with AI Agents (Claud
 npx skills add jimliu/baoyu-skills
 ```
 
+### Codex Project-Level Install
+
+If you only need a subset of skills in one project, you do not need to install the full plugin. Codex scans `.agents/skills` inside a project, so copy or symlink each needed skill as a full directory:
+
+```text
+<project>/.agents/skills/baoyu-cover-image/SKILL.md
+<project>/.agents/skills/baoyu-article-illustrator/SKILL.md
+<project>/.agents/skills/baoyu-post-to-wechat/SKILL.md
+```
+
+For a WeChat Official Account article workflow, the usual minimal set is:
+
+- `baoyu-cover-image`
+- `baoyu-article-illustrator`
+- `baoyu-post-to-wechat`
+
+You do not need to install `baoyu-markdown-to-html` separately. `baoyu-post-to-wechat` already includes the Markdown to WeChat-ready HTML conversion flow. Install `baoyu-format-markdown` only if you need to first turn raw text or drafts into structured Markdown articles with titles, summaries, headings, bold text, lists, and similar formatting.
+
+Place WeChat API credentials according to the scope you want:
+
+- User-level: `~/.baoyu-skills/.env`
+- Project-level: `<project>/.baoyu-skills/.env`
+
+Project-level `.env` files are useful when credentials should apply only to the current project. Do not commit them to Git.
+
 ### Publish to ClawHub / OpenClaw
 
 This repository now supports publishing each `skills/baoyu-*` directory as an individual ClawHub skill.
